@@ -91,4 +91,25 @@ public void eliminarPorCodigo(int codigo)
 
     System.out.println("Producto eliminado correctamente.");
 }
+// Actualizar precio y cantidad de un producto
+public void actualizarProducto(int codigo, double nuevoPrecio, int nuevaCantidad)
+        throws ProductoNoEncontradoException {
+
+    Producto producto = buscarPorCodigo(codigo);
+
+    if (nuevoPrecio <= 0 || !Double.isFinite(nuevoPrecio)) {
+        System.out.println("Error: El precio debe ser positivo y valido.");
+        return;
+    }
+
+    if (nuevaCantidad < 0) {
+        System.out.println("Error: La cantidad no puede ser negativa.");
+        return;
+    }
+
+    producto.setPrecio(nuevoPrecio);
+    producto.setCantidad(nuevaCantidad);
+
+    System.out.println("Producto actualizado correctamente.");
+}
 }

@@ -35,7 +35,8 @@ public class Main {
             System.out.println("2. Mostrar inventario");
             System.out.println("3. Buscar producto por codigo");
             System.out.println("4. Eliminar producto");
-            System.out.println("5. Salir");
+            System.out.println("5. Actualizar producto");
+            System.out.println("6. Salir");
             System.out.println("======================================");
             System.out.print("Seleccione una opcion: ");
 
@@ -61,8 +62,12 @@ public class Main {
                         break;
 
                     case 5:
-                        System.out.println("Gracias por utilizar JTSYSTEM.");
+                        actualizarProducto();
                         break;
+
+                    case 6:
+    System.out.println("Gracias por utilizar JTSYSTEM.");
+    break;
 
                     default:
                         System.out.println("Opcion no valida.");
@@ -72,7 +77,7 @@ public class Main {
                 System.out.println("Error: Debe ingresar un numero valido.");
             }
 
-        } while (opcion != 5);
+        } while (opcion != 6);
 
         scanner.close();
     }
@@ -198,6 +203,28 @@ private static void eliminarProducto() {
 
     try {
         inventario.eliminarPorCodigo(codigo);
+
+    } catch (ProductoNoEncontradoException e) {
+        System.out.println("Error: " + e.getMessage());
+    }
+}
+// Actualizar precio y cantidad de un producto
+private static void actualizarProducto() {
+
+    System.out.println("\n===== ACTUALIZAR PRODUCTO =====");
+
+    int codigo = leerEntero("Ingrese el codigo del producto: ");
+
+    double nuevoPrecio = leerDecimal("Ingrese el nuevo precio: ");
+
+    int nuevaCantidad = leerEntero("Ingrese la nueva cantidad: ");
+
+    try {
+        inventario.actualizarProducto(
+            codigo,
+            nuevoPrecio,
+            nuevaCantidad
+        );
 
     } catch (ProductoNoEncontradoException e) {
         System.out.println("Error: " + e.getMessage());

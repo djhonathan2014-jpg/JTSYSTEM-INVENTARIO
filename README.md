@@ -4,7 +4,7 @@
 
 JTSYSTEM - INVENTARIO es una aplicación de consola desarrollada en Java, orientada a objetos, que permite administrar un inventario de productos tecnológicos.
 
-El sistema facilita el registro, consulta, búsqueda y eliminación de productos, además de calcular el valor total de cada producto y del inventario.
+El sistema facilita el registro, consulta, búsqueda, actualización y eliminación de productos, además de calcular el valor total de cada producto y del inventario.
 
 ## Objetivo
 
@@ -16,10 +16,12 @@ Desarrollar una aplicación que permita aplicar los conceptos fundamentales de l
 - Registrar equipos de cómputo con información adicional de marca y modelo.
 - Mostrar todos los productos registrados.
 - Buscar productos mediante su código.
+- Actualizar el precio y la cantidad de productos.
 - Eliminar productos del inventario.
 - Calcular el valor total de cada producto.
 - Calcular el valor económico total del inventario.
-- Validar códigos duplicados y datos numéricos incorrectos.
+- Validar códigos duplicados y datos incorrectos.
+- Manejar excepciones mediante una excepción personalizada.
 
 ## Tecnologías utilizadas
 
@@ -47,8 +49,7 @@ JTSYSTEM-INVENTARIO/
 │           │
 │           └── Main.java
 │
-├── out/
-│
+├── .gitignore
 └── README.md
 ```
 
